@@ -9,8 +9,10 @@ server.use(cors())
 const PORT = process.env.PORT
 
 const escola = require('./routes/referenteEscola/escolaRoutes')
+const ei = require('./routes/referenteEscola/eiRoutes')
 
 server.use(escola)
+server.use(ei)
 
 server.listen(PORT, () => {
     console.log('SERVIDOR FUNCIONANDO!')
