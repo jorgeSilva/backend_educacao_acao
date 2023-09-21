@@ -31,6 +31,11 @@ class EscolaController{
       res.status(400).json(error)
     }
   }
+
+  async show (req, res){
+    await Escola.find().then(r => res.status(200).json(r)).catch(e => res.status(400).json(e))
+  }
+
 }
 
 module.exports = new EscolaController()
