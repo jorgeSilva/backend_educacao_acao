@@ -12,11 +12,13 @@ const escola = require('./routes/referenteEscola/escolaRoutes')
 const ei = require('./routes/referenteEscola/eiRoutes')
 const eja = require('./routes/referenteEscola/ejaRoutes')
 const aee = require('./routes/referenteEscola/aeeRoutes')
+const aluno = require('./routes/referenteEscola/alunoRoutes')
 
 server.use(escola)
 server.use(ei)
 server.use(eja)
 server.use(aee)
+server.use(aluno)
 
 server.listen(PORT, () => {
     console.log('SERVIDOR FUNCIONANDO!')

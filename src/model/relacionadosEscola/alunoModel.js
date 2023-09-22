@@ -10,6 +10,7 @@ const AlunoSchema = new Schema({
   bairro: String,
   nCasa: String,
   contato: String,
+  periodo: String,
   escolaFK: {
     type: Schema.Types.ObjectId,
     ref: 'Escola'
