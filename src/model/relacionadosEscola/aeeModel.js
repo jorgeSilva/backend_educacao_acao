@@ -2,7 +2,7 @@ const mongoose = require('../../config/database')
 const Schema = mongoose.Schema
 
 const AeeSchema = new Schema({
-  nome: String,
+  nTurmas: Number,
   escolaFK: {
     type: Schema.Types.ObjectId,
     ref: 'Escola'
