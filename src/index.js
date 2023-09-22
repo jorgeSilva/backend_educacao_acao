@@ -18,6 +18,7 @@ const professor = require('./routes/referenteEscola/professorRoutes')
 const servidor = require('./routes/servidores/servidorRoutes')
 
 const setores = require('./routes/setores/setoresRoute')
+const convenio = require('./routes/setores/convenioRoute')
 
 server.use(escola)
 server.use(ei)
@@ -27,7 +28,9 @@ server.use(aluno)
 server.use(professor)
 
 server.use(servidor)
+
 server.use(setores)
+server.use(convenio)
 
 server.listen(PORT, () => {
     console.log('SERVIDOR FUNCIONANDO!')
