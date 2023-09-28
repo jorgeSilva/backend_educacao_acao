@@ -57,19 +57,19 @@ class UserController{
     const { email, password } = req.body
 
     if(!(await schema.isValid(req.body))){
-      return res.status(400).json({error:'Falha na validação dos campos.'})
+      return res.status(400).json({error:'Email ou senha invalidos'})
     }
 
     const user = await Usuario.findOne({email: email})
 
     if(!user){
-      return res.status(400).json({error:'Usuario não encontrado.'})
+      return res.status(400).json({error:'Email ou senha invalidos'})
     }
 
     const checkPassword = await bcrypt.compare(password, user.password)
 
     if(!checkPassword){
-      return res.status(400).json({error: 'Senha inválida.'})
+      return res.status(400).json({error: 'Email ou senha invalidos'})
     }
 
     try{
