@@ -1,11 +1,11 @@
-const mongoose = require('../../config/database')
+const mongoose = require('mongoose')
 const Schema = mongoose.Schema
 
 const ServidoresSchema = new Schema({
   nome: String,
   funcao: String,
   cargo: String,
-  escolaFK: {
+  fkescola: {
     type: Schema.Types.ObjectId,
     ref: 'Escola'
   }

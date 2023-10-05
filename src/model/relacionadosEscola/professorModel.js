@@ -4,7 +4,7 @@ const Schema = mongoose.Schema
 const ProfessorSchema = new Schema({
   nome: String,
   funcao: String,
-  escolaFK: {
+  fkescola: {
     type: Schema.Types.ObjectId,
     ref: 'Escola'
   }

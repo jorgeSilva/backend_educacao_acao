@@ -8,26 +8,36 @@ class ServidorController{
       nome: Yup.string().required(),
       funcao: Yup.string().required(),
       cargo: Yup.string().required(),
-      escolaFK: Yup.string().required()
+      fkescola: Yup.string().required()
     })
 
-    const { nome, funcao, cargo, escolaFK } = req.body
+    const { nome, funcao, cargo, fkescola } = req.body
 
-    if(!(await schema.isValid(req.body))){
-      return res.status(400).json({error: 'Falha na validação dos campos de cadastro.'})
+    if(!nome){
+      return res.status(400).json({error: 'Falha na validação do nome.'})
     }
 
-    const schoolExist = await Escola.findById(escolaFK)
+    if(!funcao){
+      return res.status(400).json({error: 'Falha na validação da função.'})
+    }
+
+    if(!cargo){
+      return res.status(400).json({error: 'Falha na validação do cargo.'})
+    }
+
+    const schoolExist = await Escola.findOne({
+      _id:{'$eq':fkescola}
+    })
 
     if(!schoolExist){
-      return res.status(400).json({error: 'Escola não existente no banco de dados.'})
+      return res.status(400).json({error: `Escola não existente no banco de dados: ${schoolExist}`})
     }
 
     const cad = await Servidor.create({
       nome,
       funcao,
       cargo,
-      escolaFK:schoolExist
+      fkescola: schoolExist
     })
 
     try{

@@ -7,16 +7,20 @@ class ProfessorController{
     const schema = Yup.object().shape({
       nome: Yup.string().required(),
       funcao: Yup.string().required(),
-      escolaFK: Yup.string().required()
+      fkescola: Yup.string().required()
     })
 
-    const { nome, funcao, escolaFK } = req.body
+    const { nome, funcao, fkescola } = req.body
 
-    if(!(await schema.isValid(req.body))){
-      return res.status(400).json({error: 'Falha na validação dos campos de cadastro.'})
+    if(!nome){
+      return res.status(400).json({error: 'Falha na validação do nome.'})
     }
 
-    const schoolExist = await Escola.findById(escolaFK)
+    if(!funcao){
+      return res.status(400).json({error: 'Falha na validação da função.'})
+    }
+
+    const schoolExist = await Escola.findById(fkescola)
 
     if(!schoolExist){
       return res.status(400).json({error: 'Escola não existente no banco de dados.'})
@@ -25,7 +29,7 @@ class ProfessorController{
     const cad = await Professor.create({
       nome,
       funcao,
-      escolaFK:schoolExist
+      fkescola: schoolExist
     })
 
     try{
