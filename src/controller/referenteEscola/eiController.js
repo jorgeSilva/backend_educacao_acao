@@ -8,16 +8,16 @@ class EIController{
       nTurmas: Yup.string().required(),
       parcial: Yup.string().required(),
       integral: Yup.string().required(),
-      escolaFK: Yup.string().required()
+      fkescola: Yup.string().required()
     })
 
-    const { nTurmas, parcial, integral, escolaFK } = req.body
+    const { nTurmas, parcial, integral, fkescola } = req.body
 
     if(!(await schema.isValid(req.body))){
       return res.status(400).json({error: 'Falha na validação dos campos de cadastro.'})
     }
 
-    const schoolExist = await Escola.findById(escolaFK)
+    const schoolExist = await Escola.findById(fkescola)
 
     if(!schoolExist){
       return res.status(400).json({error: 'Escola não existente no banco de dados.'})
@@ -27,7 +27,7 @@ class EIController{
       nTurmas,
       parcial,
       integral,
-      escolaFK:schoolExist
+      fkescola:schoolExist
     })
 
     try{

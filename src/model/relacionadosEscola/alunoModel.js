@@ -11,7 +11,7 @@ const AlunoSchema = new Schema({
   nCasa: String,
   contato: String,
   periodo: String,
-  escolaFK: {
+  fkescola: {
     type: Schema.Types.ObjectId,
     ref: 'Escola'
   }

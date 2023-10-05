@@ -3,7 +3,7 @@ const Schema = mongoose.Schema
 
 const EJASchema = new Schema({
   nTurmas: Number,
-  escolaFK: {
+  fkescola: {
     type: Schema.Types.ObjectId,
     ref: 'Escola'
   }

@@ -55,7 +55,7 @@ class ServidorController{
   }
 
   async updateDados(req, res){
-    const { nome, funcao, cargo, escolaFK } = req.body
+    const { nome, funcao, cargo, fkescola } = req.body
     const { _id } = req.params
 
     await Servidor.findByIdAndUpdate(

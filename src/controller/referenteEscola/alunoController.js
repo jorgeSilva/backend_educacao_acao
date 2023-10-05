@@ -14,16 +14,16 @@ class AlunoController{
       nCasa: Yup.string().required(),
       contato: Yup.string().required(),
       periodo: Yup.string().required(),
-      escolaFK: Yup.string().required(),
+      fkescola: Yup.string().required(),
     })
 
-    const { nome, dataNasc, nomeMae, nomePai, rua, bairro, nCasa, contato, periodo, escolaFK } = req.body
+    const { nome, dataNasc, nomeMae, nomePai, rua, bairro, nCasa, contato, periodo, fkescola } = req.body
 
     if(!(await schema.isValid(req.body))){
       return res.status(400).json({error: 'Falha na validação dos campos de cadastro.'})
     }
 
-    const schoolExist = await Escola.findById(escolaFK)
+    const schoolExist = await Escola.findById(fkescola)
 
     if(!schoolExist){
       return res.status(400).json({error: 'Escola não existente no banco de dados.'})
@@ -39,7 +39,7 @@ class AlunoController{
       nCasa,
       contato,
       periodo,
-      escolaFK:schoolExist
+      fkescola:schoolExist
     })
 
     try{
@@ -51,12 +51,12 @@ class AlunoController{
   }
 
   async show(req, res){
-    await Aluno.find().populate('escolaFK')
+    await Aluno.find().populate('fkescola')
     .then(r => res.status(200).json(r)).catch(e => res.status.json(e))
   }
 
   async update(req, res){
-    const { nome, dataNasc, nomeMae, nomePai, rua, bairro, nCasa, contato, periodo, escolaFK } = req.body
+    const { nome, dataNasc, nomeMae, nomePai, rua, bairro, nCasa, contato, periodo, fkescola } = req.body
     const { _id } = req.params
     
     await Aluno.findByIdAndUpdate(

@@ -47,7 +47,7 @@ class ProfessorController{
   }
 
   async updateDados(req, res){
-    const { nome, funcao, escolaFK } = req.body
+    const { nome, funcao, fkescola } = req.body
     const { _id } = req.params
 
     await Professor.findByIdAndUpdate(

@@ -6,16 +6,16 @@ class AEEController{
   async store(req, res){
     const schema = Yup.object().shape({
       nTurmas: Yup.number().required(),
-      escolaFK: Yup.string().required()
+      fkescola: Yup.string().required()
     })
 
-    const { nTurmas, escolaFK } = req.body
+    const { nTurmas, fkescola } = req.body
 
     if(!(await schema.isValid(req.body))){
       return res.status(400).json({error: 'Falha na validação dos campos de cadastro.'})
     }
 
-    const schoolExist = await Escola.findById(escolaFK)
+    const schoolExist = await Escola.findById(fkescola)
 
     if(!schoolExist){
       return res.status(400).json({error: 'Escola não existente no banco de dados.'})
@@ -23,7 +23,7 @@ class AEEController{
 
     const cad = await AEE.create({
       nTurmas,
-      escolaFK: schoolExist
+      fkescola: schoolExist
     })
 
     try{
