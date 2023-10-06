@@ -41,7 +41,7 @@ class ProfessorController{
   }
 
   async show(req, res){
-    await Professor.find()
+    await Professor.find().populate('fkescola')
       .then(r => res.status(200).json(r))
         .catch(e => res.status(400).json(e))
   }
@@ -63,6 +63,62 @@ class ProfessorController{
     await Professor.findByIdAndUpdate(
       {'_id':_id}, req.body, {new: true}
     ).then(r => res.status(200).json(r))
+    .catch(e => res.status(400).json(e))
+  }
+
+  async professor40h(req, res){
+    await Professor.find({
+      funcao:{'$eq': '40h'}
+    }).populate('fkEscola')
+    .then(r => res.status(200).json(r))
+    .catch(e => res.status(400).json(e))
+  }
+
+  async professorREA40h(req, res){
+    await Professor.find({
+      funcao:{'$eq': 'REA 40h'}
+    }).populate('fkescola')
+    .then(r => res.status(200).json(r))
+    .catch(e => res.status(400).json(e))
+  }
+
+  async professorAF40h(req, res){
+    await Professor.find({
+      funcao:{'$eq': 'AF 40h'}
+    }).populate('fkescola')
+    .then(r => res.status(200).json(r))
+    .catch(e => res.status(400).json(e))
+  }
+
+  async professor25h(req, res){
+    await Professor.find({
+      funcao:{'$eq': '25h'}
+    }).populate('fkescola')
+    .then(r => res.status(200).json(r))
+    .catch(e => res.status(400).json(e))
+  }
+
+  async professorREA25h(req, res){
+    await Professor.find({
+      funcao:{'$eq': 'REA 25h'}
+    }).populate('fkescola')
+    .then(r => res.status(200).json(r))
+    .catch(e => res.status(400).json(e))
+  }
+
+  async professorAF25h(req, res){
+    await Professor.find({
+      funcao:{'$eq': 'AF 25h'}
+    }).populate('fkescola')
+    .then(r => res.status(200).json(r))
+    .catch(e => res.status(400).json(e))
+  }
+
+  async professorProfContr(req, res){
+    await Professor.find({
+      funcao:{'$eq': 'Professor contratado'}
+    }).populate('fkescola')
+    .then(r => res.status(200).json(r))
     .catch(e => res.status(400).json(e))
   }
 }
