@@ -54,6 +54,48 @@ class SetorController{
     ).then(r => res.status(200).json(r))
     .catch(e => res.status(400).json(e))
   }
+
+  async setorEsporte(req, res){
+    await Setor.find({
+      setor:{'$eq': 'Esporte'}
+    }).then(r => res.status(200).json(r)).catch(e => res.status(400).json(e))
+  }
+
+  async setorEducacao(req, res){
+    await Setor.find({
+      setor:{'$eq': 'Educação'}
+    }).then(r => res.status(200).json(r)).catch(e => res.status(400).json(e))
+  }
+
+  async setorCultura(req, res){
+    await Setor.find({
+      setor:{'$eq': 'Cultura'}
+    }).then(r => res.status(200).json(r)).catch(e => res.status(400).json(e))
+  }
+
+  async setorCMAEE(req, res){
+    await Setor.find({
+      setor:{'$eq': 'CMAEE'}
+    }).then(r => res.status(200).json(r)).catch(e => res.status(400).json(e))
+  }
+
+  async setorUnivesp(req, res){
+    await Setor.find({
+      setor:{'$eq': 'Univesp'}
+    }).then(r => res.status(200).json(r)).catch(e => res.status(400).json(e))
+  }
+
+  async setorADM(req, res){
+    await Setor.find({
+      setor:{'$eq': 'ADM'}
+    }).then(r => res.status(200).json(r)).catch(e => res.status(400).json(e))
+  }
+
+  async setorTransporte(req, res){
+    await Setor.find({
+      setor:{'$eq': 'Transporte coletivo'}
+    }).then(r => res.status(200).json(r)).catch(e => res.status(400).json(e))
+  }
 }
 
 module.exports = new SetorController()
