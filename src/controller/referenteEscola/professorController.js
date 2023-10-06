@@ -69,7 +69,7 @@ class ProfessorController{
   async professor40h(req, res){
     await Professor.find({
       funcao:{'$eq': '40h'}
-    }).populate('fkEscola')
+    }).populate('fkescola')
     .then(r => res.status(200).json(r))
     .catch(e => res.status(400).json(e))
   }

@@ -6,7 +6,7 @@ const ProfessorController = require('../../controller/referenteEscola/professorC
 professorRoute.post('/professor', ProfessorController.store)
 
 professorRoute.get('/Servidores/show', ProfessorController.show)
-professorRoute.get('/servidor/40h/show', ProfessorController.professor40h)
+professorRoute.get('/professor/40h/show', ProfessorController.professor40h)
 professorRoute.get('/professor/rea40h/show', ProfessorController.professorREA40h)
 professorRoute.get('/professor/af40h/show', ProfessorController.professorAF40h)
 professorRoute.get('/professor/25h/show', ProfessorController.professor25h)
