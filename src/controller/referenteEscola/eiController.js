@@ -39,7 +39,8 @@ class EIController{
   }
 
   async show(req, res){
-    await EI.find().then(r => res.status(200).json(r)).catch(e => res.status(400).json(e))
+    await EI.find().populate('fkescola')
+    .then(r => res.status(200).json(r)).catch(e => res.status(400).json(e))
   }
 
   async updateTTurmas(req, res){

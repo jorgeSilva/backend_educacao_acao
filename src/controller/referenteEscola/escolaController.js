@@ -33,9 +33,14 @@ class EscolaController{
   }
 
   async show (req, res){
-    await Escola.find().then(r => res.status(200).json(r)).catch(e => res.status(400).json(e))
+    await Escola.find()
+    .then(r => res.status(200).json(r)).catch(e => res.status(400).json(e))
   }
 
+  async showN1 (req, res){
+    await Escola.find()
+    .then(r => res.status(200).json(r)).catch(e => res.status(400).json(e))
+  }
 }
 
 module.exports = new EscolaController()

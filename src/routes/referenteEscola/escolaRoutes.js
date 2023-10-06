@@ -5,5 +5,6 @@ const EscolaController = require('../../controller/referenteEscola/escolaControl
 
 escolaRoute.post('/escola', EscolaController.store)
 escolaRoute.get('/escola/show', EscolaController.show)
+escolaRoute.get('/escola/n1c/show', EscolaController.showN1)
 
 module.exports = escolaRoute

@@ -64,6 +64,22 @@ class AlunoController{
     ).then(r => res.status(200).json(r))
     .catch(e => res.status(400).json(e))
   }
+
+  async alunoPeriodoParcial (req, res){
+    await Aluno.find({
+      periodo: {'$eq': 'Parcial'}
+    }).populate('fkescola')
+    .then(r => res.status(200).json(r))
+    .catch(e => res.status(400).json(e))
+  }
+
+  async alunoPeriodoIntegral (req, res){
+    await Aluno.find({
+      periodo: {'$eq': 'Integral'}
+    }).populate('fkescola')
+    .then(r => res.status(200).json(r))
+    .catch(e => res.status(400).json(e))
+  }
 }
 
 module.exports = new AlunoController()

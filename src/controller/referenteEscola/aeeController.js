@@ -35,7 +35,8 @@ class AEEController{
   }
 
   async show(req, res){
-    await AEE.find().then(r => res.status(200).json(r)).catch(e => res.status.json(e))
+    await AEE.find().populate('fkescola')
+    .then(r => res.status(200).json(r)).catch(e => res.status.json(e))
   }
 
   async update(req, res){

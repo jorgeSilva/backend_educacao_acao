@@ -14,6 +14,8 @@ const eja = require('./routes/referenteEscola/ejaRoutes')
 const aee = require('./routes/referenteEscola/aeeRoutes')
 const aluno = require('./routes/referenteEscola/alunoRoutes')
 const professor = require('./routes/referenteEscola/professorRoutes')
+const pre = require('./routes/referenteEscola/preRoutes')
+const creche = require('./routes/referenteEscola/crecheRoutes')
 
 const servidor = require('./routes/servidores/servidorRoutes')
 
@@ -28,6 +30,8 @@ server.use(eja)
 server.use(aee)
 server.use(aluno)
 server.use(professor)
+server.use(pre)
+server.use(creche)
 
 server.use(servidor)
 
