@@ -77,6 +77,67 @@ class ServidorController{
     ).then(r => res.status(200).json(r))
     .catch(e => res.status(400).json(e))
   }
+
+  async merendeiraEfetiva(req, res){
+    await Servidor.find({
+      funcao: {'$eq': 'Merendeira'},
+      cargo: {'$eq': 'Efetiva'}
+    }).populate('fkescola')
+      .then(r => res.status(200).json(r))
+        .catch(e => res.status(400).json(e))
+  }
+
+  async merendeiraContratada(req, res){
+    await Servidor.find({
+      funcao: {'$eq': 'Merendeira'},
+      cargo: {'$eq': 'Contratada'}
+    }).populate('fkescola')
+      .then(r => res.status(200).json(r))
+        .catch(e => res.status(400).json(e))
+  }
+
+  async auxLimpContr(req, res){
+    await Servidor.find({
+      funcao: {'$eq': 'Aux. Limpeza'},
+      cargo: {'$eq': 'Contratada'}
+    }).populate('fkescola')
+      .then(r => res.status(200).json(r))
+        .catch(e => res.status(400).json(e))
+  }
+
+  async motoristaEfetivo(req, res){
+    await Servidor.find({
+      funcao: {'$eq': 'Motorista'},
+      cargo: {'$eq': 'Efetivo'}
+    }).populate('fkescola')
+      .then(r => res.status(200).json(r))
+        .catch(e => res.status(400).json(e))
+  }
+
+  async motoristaContratado(req, res){
+    await Servidor.find({
+      funcao: {'$eq': 'Motorista'},
+      cargo: {'$eq': 'Contratado'}
+    }).populate('fkescola')
+      .then(r => res.status(200).json(r))
+        .catch(e => res.status(400).json(e))
+  }
+
+  async Cuidador(req, res){
+    await Servidor.find({
+      funcao: {'$eq': 'Cuidador'}
+    }).populate('fkescola')
+      .then(r => res.status(200).json(r))
+        .catch(e => res.status(400).json(e))
+  }
+
+  async Monitor(req, res){
+    await Servidor.find({
+      funcao: {'$eq': 'Monitor'}
+    }).populate('fkescola')
+      .then(r => res.status(200).json(r))
+        .catch(e => res.status(400).json(e))
+  }
 }
 
 module.exports = new ServidorController()
