@@ -214,7 +214,7 @@ class EscolaController{
 
   async referenteJSI(req, res){
     const escola = await Escola.find({
-      nome:{'$eq':'EE Jardim Santa Ines'}
+      nome:{'$eq':'CMEI Santa Ines'}
     })
 
     const aee = await aeeModel.find({
