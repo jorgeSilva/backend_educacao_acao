@@ -4,19 +4,25 @@ const Yup = require('yup')
 class ConvenioController{
   async store(req, res){
     const schema = Yup.object().shape({
-      transporte: Yup.number().required(),
-      merenda: Yup.number().required(),
+      convenio: Yup.string().required(),
+      pmi: Yup.number().required(),
+      see: Yup.number().required(),
+      contraPartida: Yup.number().required(),
+      date: Yup.date().required()
     })
 
-    const { transporte, merenda } = req.body
+    const { convenio, pmi, see, contraPartida, date } = req.body
 
-    if(!transporte || !merenda){
+    if(!convenio || !pmi || !see || !contraPartida || !date){
       return res.status(400).json({error: 'Os campos devem estarem preechidos.'})
     }
 
     const cad = await Convenio.create({
-      transporte,
-      merenda
+      convenio,
+      pmi,
+      see,
+      contraPartida,
+      date
     })
 
     try{
@@ -50,6 +56,20 @@ class ConvenioController{
     await Convenio.findByIdAndUpdate(
       {'_id':_id}, req.body, {new: true}
     ).then(r => res.status(200).json(r))
+    .catch(e => res.status(400).json(e))
+  }
+
+  async convenioMerenda(req, res){
+    await Convenio.find({
+      convenio:{'$eq': 'Merenda'}
+    }).then(r => res.status(200).json(r))
+    .catch(e => res.status(400).json(e))
+  }
+
+  async convenioTransporte(req, res){
+    await Convenio.find({
+      convenio:{'$eq': 'Transporte'}
+    }).then(r => res.status(200).json(r))
     .catch(e => res.status(400).json(e))
   }
 }
