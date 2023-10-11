@@ -49,27 +49,27 @@ class EscolaController{
 
   async referenteEMEI(req, res){
     const escola = await Escola.find({
-      nome:{'$eq':'EMEI'}
+      nome:{'$eq':'EMEI Arco-íris '}
     })
 
     const aee = await aeeModel.find({
-      fkescola:{'$eq':'652426342bcaf073395bb421'}
+      fkescola:{'$eq':'652608917db0c35f0086f726'}
     })
 
     const ei = await eiModel.find({
-      fkescola:{'$eq':'652426342bcaf073395bb421'}
+      fkescola:{'$eq':'652608917db0c35f0086f726'}
     })
 
     const eja = await ejaModel.find({
-      fkescola:{'$eq':'652426342bcaf073395bb421'}
+      fkescola:{'$eq':'652608917db0c35f0086f726'}
     })
 
     const creche = await crecheModel.find({
-      fkescola:{'$eq':'652426342bcaf073395bb421'}
+      fkescola:{'$eq':'652608917db0c35f0086f726'}
     })
 
     const pre = await preModel.find({
-      fkescola:{'$eq':'652426342bcaf073395bb421'}
+      fkescola:{'$eq':'652608917db0c35f0086f726'}
     })
 
     try{
@@ -82,27 +82,27 @@ class EscolaController{
 
   async referenteFavo(req, res){
     const escola = await Escola.find({
-      nome:{'$eq':'Favo de mel'}
+      nome:{'$eq':'CEIM Favo de Mel '}
     })
 
     const aee = await aeeModel.find({
-      fkescola:{'$eq':'652426582bcaf073395bb428'}
+      fkescola:{'$eq':'652609047db0c35f0086f737'}
     })
 
     const ei = await eiModel.find({
-      fkescola:{'$eq':'652426582bcaf073395bb428'}
+      fkescola:{'$eq':'652609047db0c35f0086f737'}
     })
 
     const eja = await ejaModel.find({
-      fkescola:{'$eq':'652426582bcaf073395bb428'}
+      fkescola:{'$eq':'652609047db0c35f0086f737'}
     })
 
     const creche = await crecheModel.find({
-      fkescola:{'$eq':'652426582bcaf073395bb428'}
+      fkescola:{'$eq':'652609047db0c35f0086f737'}
     })
 
     const pre = await preModel.find({
-      fkescola:{'$eq':'652426582bcaf073395bb428'}
+      fkescola:{'$eq':'652609047db0c35f0086f737'}
     })
 
     try{
@@ -115,27 +115,27 @@ class EscolaController{
 
   async referenteVILA(req, res){
     const escola = await Escola.find({
-      nome:{'$eq':'Vila Dom Silvio'}
+      nome:{'$eq':'CEIM Vila Dom Silvio '}
     })
 
     const aee = await aeeModel.find({
-      fkescola:{'$eq':'6524267a2bcaf073395bb42b'}
+      fkescola:{'$eq':'652608c37db0c35f0086f72d'}
     })
 
     const ei = await eiModel.find({
-      fkescola:{'$eq':'6524267a2bcaf073395bb42b'}
+      fkescola:{'$eq':'652608c37db0c35f0086f72d'}
     })
 
     const eja = await ejaModel.find({
-      fkescola:{'$eq':'6524267a2bcaf073395bb42b'}
+      fkescola:{'$eq':'652608c37db0c35f0086f72d'}
     })
 
     const creche = await crecheModel.find({
-      fkescola:{'$eq':'6524267a2bcaf073395bb42b'}
+      fkescola:{'$eq':'652608c37db0c35f0086f72d'}
     })
 
     const pre = await preModel.find({
-      fkescola:{'$eq':'6524267a2bcaf073395bb42b'}
+      fkescola:{'$eq':'652608c37db0c35f0086f72d'}
     })
 
     try{
@@ -148,27 +148,27 @@ class EscolaController{
 
   async referenteAgro(req, res){
     const escola = await Escola.find({
-      nome:{'$eq':'Agrovila III'}
+      nome:{'$eq':'CEIM Agrovila III '}
     })
 
     const aee = await aeeModel.find({
-      fkescola:{'$eq':'652426962bcaf073395bb42e'}
+      fkescola:{'$eq':'652608dc7db0c35f0086f730'}
     })
 
     const ei = await eiModel.find({
-      fkescola:{'$eq':'652426962bcaf073395bb42e'}
+      fkescola:{'$eq':'652608dc7db0c35f0086f730'}
     })
 
     const eja = await ejaModel.find({
-      fkescola:{'$eq':'652426962bcaf073395bb42e'}
+      fkescola:{'$eq':'652608dc7db0c35f0086f730'}
     })
 
     const creche = await crecheModel.find({
-      fkescola:{'$eq':'652426962bcaf073395bb42e'}
+      fkescola:{'$eq':'652608dc7db0c35f0086f730'}
     })
 
     const pre = await preModel.find({
-      fkescola:{'$eq':'652426962bcaf073395bb42e'}
+      fkescola:{'$eq':'652608dc7db0c35f0086f730'}
     })
 
     try{
@@ -181,27 +181,27 @@ class EscolaController{
 
   async referenteToriba(req, res){
     const escola = await Escola.find({
-      nome:{'$eq':'Toriba'}
+      nome:{'$eq':'CEIM Turiba do Sul '}
     })
 
     const aee = await aeeModel.find({
-      fkescola:{'$eq':'652426c42bcaf073395bb435'}
+      fkescola:{'$eq':'652608f07db0c35f0086f734'}
     })
 
     const ei = await eiModel.find({
-      fkescola:{'$eq':'652426c42bcaf073395bb435'}
+      fkescola:{'$eq':'652608f07db0c35f0086f734'}
     })
 
     const eja = await ejaModel.find({
-      fkescola:{'$eq':'652426c42bcaf073395bb435'}
+      fkescola:{'$eq':'652608f07db0c35f0086f734'}
     })
 
     const creche = await crecheModel.find({
-      fkescola:{'$eq':'652426c42bcaf073395bb435'}
+      fkescola:{'$eq':'652608f07db0c35f0086f734'}
     })
 
     const pre = await preModel.find({
-      fkescola:{'$eq':'652426c42bcaf073395bb435'}
+      fkescola:{'$eq':'652608f07db0c35f0086f734'}
     })
 
     try{
@@ -214,27 +214,27 @@ class EscolaController{
 
   async referenteJSI(req, res){
     const escola = await Escola.find({
-      nome:{'$eq':'CMEI Santa Ines'}
+      nome:{'$eq':'CMEI Santa Inês '}
     })
 
     const aee = await aeeModel.find({
-      fkescola:{'$eq':'652426f22bcaf073395bb438'}
+      fkescola:{'$eq':'652608ab7db0c35f0086f729'}
     })
 
     const ei = await eiModel.find({
-      fkescola:{'$eq':'652426f22bcaf073395bb438'}
+      fkescola:{'$eq':'652608ab7db0c35f0086f729'}
     })
 
     const eja = await ejaModel.find({
-      fkescola:{'$eq':'652426f22bcaf073395bb438'}
+      fkescola:{'$eq':'652608ab7db0c35f0086f729'}
     })
 
     const creche = await crecheModel.find({
-      fkescola:{'$eq':'652426f22bcaf073395bb438'}
+      fkescola:{'$eq':'652608ab7db0c35f0086f729'}
     })
 
     const pre = await preModel.find({
-      fkescola:{'$eq':'652426f22bcaf073395bb438'}
+      fkescola:{'$eq':'652608ab7db0c35f0086f729'}
     })
 
     try{
