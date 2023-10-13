@@ -14,6 +14,6 @@ setorRoute.get('/setor/univesp/show', setoresController.setorUnivesp)
 setorRoute.get('/setor/adm/show', setoresController.setorADM)
 setorRoute.get('/setor/transporte/show', setoresController.setorTransporte)
 
-setorRoute.put('/setor/dados/:_id', setoresController.updateObs)
+setorRoute.put('/setor/dados/:_id', setoresController.updateSetor)
 
 module.exports = setorRoute

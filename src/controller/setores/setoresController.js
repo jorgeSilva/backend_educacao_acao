@@ -35,23 +35,13 @@ class SetorController{
         .catch(e => res.status(400).json(e))
   }
 
-  async updateObs(req, res){
-    const { obs } = req.body
-    const { _id } = req.params
-
-    await Setor.findByIdAndUpdate(
-      {'_id':_id}, req.body, {new: true}
-    ).then(r => res.status(200).json(r))
-    .catch(e => res.status(400).json(e))
-  }
-
   async updateSetor(req, res){
-    const { setor } = req.body
+    const { setor, nome, obs } = req.body
     const { _id } = req.params
 
     await Setor.findByIdAndUpdate(
       {'_id':_id}, req.body, {new: true}
-    ).then(r => res.status(200).json(r))
+    ).then(r => res.status(200).json({r, msg: 'Editado com sucesso.'}))
     .catch(e => res.status(400).json(e))
   }
 
