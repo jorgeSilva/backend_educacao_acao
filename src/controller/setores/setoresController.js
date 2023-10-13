@@ -29,12 +29,6 @@ class SetorController{
     }
   }
 
-  async show(req, res){
-    await Setor.find()
-      .then(r => res.status(200).json(r))
-        .catch(e => res.status(400).json(e))
-  }
-
   async updateSetor(req, res){
     const { setor, nome, obs } = req.body
     const { _id } = req.params
@@ -43,6 +37,21 @@ class SetorController{
       {'_id':_id}, req.body, {new: true}
     ).then(r => res.status(200).json({r, msg: 'Editado com sucesso.'}))
     .catch(e => res.status(400).json(e))
+  }
+
+  async deleteSetor(req, res){
+    const { _id } = req.params
+
+    await Setor.findOneAndDelete(
+      {'_id':_id}
+    ).then(() => res.status(200).json({msg: 'Deletado com sucesso.'}))
+    .catch(e => res.status(400).json(e))
+  }
+
+  async show(req, res){
+    await Setor.find()
+      .then(r => res.status(200).json(r))
+        .catch(e => res.status(400).json(e))
   }
 
   async setorEsporte(req, res){

@@ -16,4 +16,6 @@ setorRoute.get('/setor/transporte/show', setoresController.setorTransporte)
 
 setorRoute.put('/setor/dados/:_id', setoresController.updateSetor)
 
+setorRoute.delete('/setor/delete/:_id', setoresController.deleteSetor)
+
 module.exports = setorRoute

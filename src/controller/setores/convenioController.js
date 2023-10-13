@@ -33,30 +33,29 @@ class ConvenioController{
     }
   }
 
+  async updateConvenio(req, res){
+    const { convenio, pmi, see, contraPartida, date } = req.body
+    const { _id } = req.params
+
+    await Convenio.findByIdAndUpdate(
+      {'_id':_id}, req.body, {new: true}
+    ).then(r => res.status(200).json({r, msg: 'Atualizado com sucesso.'}))
+    .catch(e => res.status(400).json(e))
+  }
+
+  async deleteConvenio(req, res){
+    const { _id } = req.params
+
+    await Convenio.findOneAndDelete(
+      {'_id':_id}
+    ).then(() => res.status(200).json({msg: 'Deletado com sucesso.'}))
+    .catch(e => res.status(400).json(e))
+  }
+
   async show(req, res){
     await Convenio.find()
     .then(r => res.status(200).json(r))
       .catch(e => res.status(400).json(e))
-  }
-
-  async updateTransp(req, res){
-    const { transporte } = req.body
-    const { _id } = req.params
-
-    await Convenio.findByIdAndUpdate(
-      {'_id':_id}, req.body, {new: true}
-    ).then(r => res.status(200).json(r))
-    .catch(e => res.status(400).json(e))
-  }
-
-  async updateMerenda(req, res){
-    const { merenda } = req.body
-    const { _id } = req.params
-
-    await Convenio.findByIdAndUpdate(
-      {'_id':_id}, req.body, {new: true}
-    ).then(r => res.status(200).json(r))
-    .catch(e => res.status(400).json(e))
   }
 
   async convenioMerenda(req, res){

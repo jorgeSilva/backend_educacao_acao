@@ -6,10 +6,15 @@ const convenioController = require('../../controller/setores/convenioController'
 convenioRoute.post('/convenio', convenioController.store)
 
 convenioRoute.get('/convenio/show', convenioController.show)
+
+convenioRoute.get('/convenio/merenda/show', convenioController.convenioMerenda)
+convenioRoute.get('/convenio/transporte/show', convenioController.convenioTransporte)
+
 convenioRoute.get('/merenda/show', convenioController.convenioMerenda)
 convenioRoute.get('/transporte/show', convenioController.convenioTransporte)
 
-convenioRoute.put('/convenio/transporte/:_id', convenioController.updateTransp)
-convenioRoute.put('/convenio/merenda/:_id', convenioController.updateMerenda)
+convenioRoute.put('/convenio/update/:_id', convenioController.updateConvenio)
+
+convenioRoute.delete('/convenio/delete/:_id', convenioController.deleteConvenio)
 
 module.exports = convenioRoute
