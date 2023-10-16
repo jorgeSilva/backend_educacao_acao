@@ -40,12 +40,6 @@ class ProfessorController{
     }
   }
 
-  async show(req, res){
-    await Professor.find().populate('fkescola')
-      .then(r => res.status(200).json(r))
-        .catch(e => res.status(400).json(e))
-  }
-
   async updateDados(req, res){
     const { nome, funcao, fkescola } = req.body
     const { _id } = req.params
@@ -54,6 +48,21 @@ class ProfessorController{
       {'_id':_id}, req.body, {new: true}
     ).populate('fkescola').then(r => res.status(200).json({r, msg: 'Atualizado com sucesso.'}))
     .catch(e => res.status(400).json(e))
+  }
+
+  async deleteProfessor(req, res){
+    const { _id } = req.params
+
+    await Professor.findOneAndDelete(
+      {'_id':_id}
+    ).then(() => res.status(200).json({msg: 'Deletado com sucesso.'}))
+    .catch(e => res.status(400).json(e))
+  }
+
+  async show(req, res){
+    await Professor.find().populate('fkescola')
+      .then(r => res.status(200).json(r))
+        .catch(e => res.status(400).json(e))
   }
 
   async professor40h(req, res){

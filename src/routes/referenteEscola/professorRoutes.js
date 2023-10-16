@@ -16,4 +16,6 @@ professorRoute.get('/professor/professorContratado/show', ProfessorController.pr
 
 professorRoute.put('/professores/update/:_id', ProfessorController.updateDados)
 
+professorRoute.delete('/professores/delete/:_id', ProfessorController.deleteProfessor)
+
 module.exports = professorRoute
