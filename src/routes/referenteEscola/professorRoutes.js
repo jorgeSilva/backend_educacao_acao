@@ -14,7 +14,6 @@ professorRoute.get('/professor/rea25h/show', ProfessorController.professorREA25h
 professorRoute.get('/professor/af25h/show', ProfessorController.professorAF25h)
 professorRoute.get('/professor/professorContratado/show', ProfessorController.professorProfContr)
 
-professorRoute.put('/professor/dados/:_id', ProfessorController.updateDados)
-professorRoute.put('/professor/funcao/:_id', ProfessorController.updateFuncao)
+professorRoute.put('/professores/update/:_id', ProfessorController.updateDados)
 
 module.exports = professorRoute

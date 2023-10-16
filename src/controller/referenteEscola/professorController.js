@@ -52,17 +52,7 @@ class ProfessorController{
 
     await Professor.findByIdAndUpdate(
       {'_id':_id}, req.body, {new: true}
-    ).then(r => res.status(200).json(r))
-    .catch(e => res.status(400).json(e))
-  }
-
-  async updateFuncao(req, res){
-    const { funcao } = req.body
-    const { _id } = req.params
-
-    await Professor.findByIdAndUpdate(
-      {'_id':_id}, req.body, {new: true}
-    ).then(r => res.status(200).json(r))
+    ).populate('fkescola').then(r => res.status(200).json({r, msg: 'Atualizado com sucesso.'}))
     .catch(e => res.status(400).json(e))
   }
 
