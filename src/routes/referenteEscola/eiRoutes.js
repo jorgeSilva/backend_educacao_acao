@@ -10,5 +10,6 @@ eiRoute.get('/educacao-infantil/show', eiController.show)
 eiRoute.put('/0a3anos/update/:_id', eiController.updateAluno0a3)
 eiRoute.put('/alunos4/update/:_id', eiController.updateAluno4)
 eiRoute.put('/alunos5/update/:_id', eiController.updateAluno5)
+eiRoute.put('/educacao-infantil/update/:_id', eiController.updateTTurmas)
 
 module.exports = eiRoute

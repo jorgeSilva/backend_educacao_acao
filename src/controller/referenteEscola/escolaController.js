@@ -37,6 +37,16 @@ class EscolaController{
     }
   }
 
+  async updateN1C(req, res){
+    const { n1 } = req.body
+    const { _id } = req.params
+
+    await Escola.findByIdAndUpdate(
+      {'_id': _id}, req.body, {new: true}
+    ).then(r => res.status(200).json({r, msg: 'Atualizado com sucesso.'}))
+    .catch(e => res.status(400).json(e))
+  }
+
   async show (req, res){
     await Escola.find()
     .then(r => res.status(200).json(r)).catch(e => res.status(400).json(e))

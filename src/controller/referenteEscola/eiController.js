@@ -75,6 +75,16 @@ class EIController{
     .catch(e => res.status(400).json(e))
   }
 
+  async updateTTurmas(req, res){
+    const { nTurmas, parcial, integral } = req.body
+    const { _id } = req.params
+
+    await EI.findByIdAndUpdate(
+      {'_id': _id}, req.body, {new: true}
+    ).then(r => res.status(200).json({r, msg: 'Atualizado com sucesso.'}))
+    .catch(e => res.status(400).json(e))
+  }
+
   async show(req, res){
     await EI.find().populate('fkescola')
     .then(r => res.status(200).json(r)).catch(e => res.status(400).json(e))

@@ -14,4 +14,6 @@ escolaRoute.get('/agro/show', EscolaController.referenteAgro)
 escolaRoute.get('/toriba/show', EscolaController.referenteToriba)
 escolaRoute.get('/jardim/show', EscolaController.referenteJSI)
 
+escolaRoute.put('/escolaN1C/update/:_id', EscolaController.updateN1C)
+
 module.exports = escolaRoute
