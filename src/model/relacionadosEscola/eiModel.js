@@ -5,6 +5,9 @@ const EISchema = new Schema({
   nTurmas: String,
   parcial: String,
   integral: String,
+  alunos0a3: String,
+  alunos4: String,
+  alunos5: String,
   fkescola: {
     type: Schema.Types.ObjectId,
     ref: 'Escola'
