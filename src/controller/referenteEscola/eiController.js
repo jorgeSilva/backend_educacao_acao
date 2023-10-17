@@ -45,45 +45,33 @@ class EIController{
     }
   }
 
-  async updateTTurmas(req, res){
-    const { nTurmas } = req.body
+  async updateAluno0a3(req, res){
+    const { alunos0a3 } = req.body
     const { _id } = req.params
 
-    if(!nTurmas){
-      return res.status(400).json({error: 'Campo invalido.'})
-    }
-
     await EI.findByIdAndUpdate(
-      {'_id':_id}, req.body, {new: true}
-    ).then(r => res.status(200).json(r))
+      {'_id': _id}, req.body, {new: true}
+    ).then(r => res.status(200).json({r, msg: 'Atualizado com sucesso.'}))
     .catch(e => res.status(400).json(e))
   }
 
-  async updateIntegral(req, res){
-    const { integral } = req.body
+  async updateAluno4(req, res){
+    const { alunos4 } = req.body
     const { _id } = req.params
 
-    if(!integral){
-      return res.status(400).json({error: 'Campo invalido.'})
-    }
-
     await EI.findByIdAndUpdate(
-      {'_id':_id}, req.body, {new: true}
-    ).then(r => res.status(200).json(r))
+      {'_id': _id}, req.body, {new: true}
+    ).then(r => res.status(200).json({r, msg: 'Atualizado com sucesso.'}))
     .catch(e => res.status(400).json(e))
   }
 
-  async updateParcial(req, res){
-    const { parcial } = req.body
+  async updateAluno5(req, res){
+    const { alunos5 } = req.body
     const { _id } = req.params
 
-    if(!parcial){
-      return res.status(400).json({error: 'Campo invalido.'})
-    }
-
     await EI.findByIdAndUpdate(
-      {'_id':_id}, req.body, {new: true}
-    ).then(r => res.status(200).json(r))
+      {'_id': _id}, req.body, {new: true}
+    ).then(r => res.status(200).json({r, msg: 'Atualizado com sucesso.'}))
     .catch(e => res.status(400).json(e))
   }
 

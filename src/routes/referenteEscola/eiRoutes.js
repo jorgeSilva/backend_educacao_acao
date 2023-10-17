@@ -7,9 +7,8 @@ eiRoute.post('/educacao-infantil', eiController.store)
 
 eiRoute.get('/educacao-infantil/show', eiController.show)
 
-eiRoute.put('/educacao-infantil/edit/todas/:_id', eiController.updateTTurmas)
-eiRoute.put('/educacao-infantil/edit/integral/:_id', eiController.updateIntegral)
-eiRoute.put('/educacao-infantil/edit/parcial/:_id', eiController.updateParcial)
-
+eiRoute.put('/0a3anos/update/:_id', eiController.updateAluno0a3)
+eiRoute.put('/alunos4/update/:_id', eiController.updateAluno4)
+eiRoute.put('/alunos5/update/:_id', eiController.updateAluno5)
 
 module.exports = eiRoute
