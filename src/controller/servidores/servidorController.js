@@ -48,34 +48,29 @@ class ServidorController{
     }
   }
 
-  async show(req, res){
-    await Servidor.find().populate('fkescola')
-      .then(r => res.status(200).json(r))
-        .catch(e => res.status(400).json(e))
-  }
-
   async updateDados(req, res){
     const { nome, funcao, cargo, fkescola } = req.body
     const { _id } = req.params
 
     await Servidor.findByIdAndUpdate(
       {'_id':_id}, req.body, {new: true}
-    ).then(r => res.status(200).json(r))
+    ).then(r => res.status(200).json({r, msg: 'Atualizado com sucesso.'}))
     .catch(e => res.status(400).json(e))
   }
 
-  async updateCargo(req, res){
-    const { cargo } = req.body
+  async deleteServidor(req, res){
     const { _id } = req.params
 
-    if(!cargo){
-      return res.status(400).json({error: 'O campo não pode estar vazio.'})
-    }
-
-    await Servidor.findByIdAndUpdate(
-      {'_id':_id}, req.body, {new: true}
-    ).then(r => res.status(200).json(r))
+    await Servidor.findOneAndDelete(
+      {'_id':_id}
+    ).then(() => res.status(200).json({msg: 'Deletado com sucesso.'}))
     .catch(e => res.status(400).json(e))
+  }
+
+  async show(req, res){
+    await Servidor.find().populate('fkescola')
+      .then(r => res.status(200).json(r))
+        .catch(e => res.status(400).json(e))
   }
 
   async merendeiraEfetiva(req, res){

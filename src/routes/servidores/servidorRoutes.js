@@ -14,7 +14,8 @@ servidorRoute.get('/motoristaContratado/show', servidorController.motoristaContr
 servidorRoute.get('/cuidador/show', servidorController.Cuidador)
 servidorRoute.get('/monitor/show', servidorController.Monitor)
 
-servidorRoute.put('/servidor/cargo/:_id', servidorController.updateCargo)
-servidorRoute.put('/servidor/dados/:_id', servidorController.updateDados)
+servidorRoute.put('/servidores/update/:_id', servidorController.updateDados)
+
+servidorRoute.delete('/servidores/delete/:_id', servidorController.deleteServidor)
 
 module.exports = servidorRoute
