@@ -4,21 +4,8 @@ const Escola = require('../../model/relacionadosEscola/escolaModel')
 
 class EIController{
   async store(req, res){
-    // const schema = Yup.object().shape({
-    //   nTurmas: Yup.string().required(),
-    //   parcial: Yup.string().required(),
-    //   integral: Yup.string().required(),
-    //   alunos0a3: Yup.string().required(),
-    //   alunos4: Yup.string().required(),
-    //   alunos5: Yup.string().required(),
-    //   fkescola: Yup.string().required()
-    // })
 
     const { nTurmas, parcial, integral, alunos0a3, alunos4, alunos5, fkescola } = req.body
-
-    // if(!(await schema.isValid(req.body))){
-    //   return res.status(400).json({error: 'Falha na validação dos campos de cadastro.'})
-    // }
 
     const schoolExist = await Escola.findById(fkescola)
 

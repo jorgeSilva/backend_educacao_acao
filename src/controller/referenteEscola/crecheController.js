@@ -24,6 +24,25 @@ class CRECHEController{
     }
   }
 
+  async updateCRECHE(req, res){
+    const { nTurmas } = req.body
+    const { _id } = req.params
+
+    await CRECHE.findByIdAndUpdate(
+      {'_id': _id}, req.body, {new:true}
+    ).then(r => res.status(200).json({r, msg: 'Atualizado com sucesso.'}))
+    .catch(e => res.status(400).json(e))
+  }
+
+  async deleteCreche(req, res){
+    const { _id } = req.params
+
+    await CRECHE.findOneAndDelete(
+      {'_id':_id}
+    ).then(() => res.status(200).json({msg: 'Deletado com sucesso.'}))
+    .catch(e => res.status(400).json(e))
+  }
+
   async crecheShow(req, res){
     await CRECHE.find().populate('fkescola')
     .then(r => res.status(200).json(r))

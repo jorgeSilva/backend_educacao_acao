@@ -49,7 +49,16 @@ class AEEController{
 
     await AEE.findByIdAndUpdate(
       {'_id':_id}, req.body, {new: true}
-    ).then(r => res.status(200).json(r))
+    ).then(r => res.status(200).json({r, msg: 'Atualizado com sucesso.'}))
+    .catch(e => res.status(400).json(e))
+  }
+
+  async deleteAEE(req, res){
+    const { _id } = req.params
+
+    await AEE.findOneAndDelete(
+      {'_id':_id}
+    ).then(() => res.status(200).json({msg: 'Deletado com sucesso.'}))
     .catch(e => res.status(400).json(e))
   }
 }

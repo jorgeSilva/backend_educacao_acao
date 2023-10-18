@@ -24,6 +24,25 @@ class PREController{
     }
   }
 
+  async updatePRE(req, res){
+    const { nTurmas } = req.body
+    const { _id } = req.params
+
+    await PRE.findByIdAndUpdate(
+      {'_id': _id}, req.body, {new:true}
+    ).then(r => res.status(200).json({r, msg: 'Atualizado com sucesso.'}))
+    .catch(e => res.status(400).json(e))
+  }
+
+  async deletePRE(req, res){
+    const { _id } = req.params
+
+    await PRE.findOneAndDelete(
+      {'_id':_id}
+    ).then(() => res.status(200).json({msg: 'Deletado com sucesso.'}))
+    .catch(e => res.status(400).json(e))
+  }
+
   async preShow(req, res){
     await PRE.find().populate('fkescola')
     .then(r => res.status(200).json(r))
