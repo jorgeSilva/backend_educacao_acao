@@ -10,5 +10,6 @@ alunoRoute.get('/parcial/show', AlunoController.alunoPeriodoParcial)
 alunoRoute.get('/integral/show', AlunoController.alunoPeriodoIntegral)
 
 alunoRoute.put('/aluno/update/:_id', AlunoController.update)
+alunoRoute.delete('/aluno/delete/:_id', AlunoController.delete)
 
 module.exports = alunoRoute

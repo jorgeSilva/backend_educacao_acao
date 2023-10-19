@@ -37,6 +37,16 @@ class EscolaController{
     }
   }
 
+  async update(req, res){
+    const { nome, modalidade } = req.body
+    const { _id } = req.params
+
+    await Escola.findByIdAndUpdate(
+      {'_id':_id}, req.body, {new: true}
+    ).then(r => res.status(200).json({r, msg: 'Atualizado com sucesso.'}))
+    .catch(e => res.status(400).json(e))
+  }
+
   async updateN1C(req, res){
     const { n1 } = req.body
     const { _id } = req.params
@@ -44,6 +54,15 @@ class EscolaController{
     await Escola.findByIdAndUpdate(
       {'_id': _id}, req.body, {new: true}
     ).then(r => res.status(200).json({r, msg: 'Atualizado com sucesso.'}))
+    .catch(e => res.status(400).json(e))
+  }
+
+  async delete(req, res){
+    const { _id } = req.params
+
+    await Escola.findOneAndDelete(
+      {'_id':_id}
+    ).then(() => res.status(200).json({msg: 'Deletado com sucesso.'}))
     .catch(e => res.status(400).json(e))
   }
 
