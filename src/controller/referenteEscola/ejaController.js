@@ -36,7 +36,8 @@ class EJAController{
 
   async show(req, res){
     await EJA.find().populate('fkescola')
-    .then(r => res.status(200).json(r)).catch(e => res.status.json(e))
+    .then(r => res.status(200).json(r))
+      .catch(e => res.status.json(e))
   }
 
   async update(req, res){
