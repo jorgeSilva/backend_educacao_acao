@@ -93,8 +93,17 @@ class ServidorController{
 
   async auxLimpContr(req, res){
     await Servidor.find({
-      funcao: {'$eq': 'Aux. Limpeza contratada'},
+      funcao: {'$eq': 'Aux. Limpeza Contratada'},
       cargo: {'$eq': 'Contratada'}
+    }).populate('fkescola')
+      .then(r => res.status(200).json(r))
+        .catch(e => res.status(400).json(e))
+  }
+
+  async auxLimpEfet(req, res){
+    await Servidor.find({
+      funcao: {'$eq': 'Aux. Limpeza Efetivo'},
+      cargo: {'$eq': 'Efetivo'}
     }).populate('fkescola')
       .then(r => res.status(200).json(r))
         .catch(e => res.status(400).json(e))
