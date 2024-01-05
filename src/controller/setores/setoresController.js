@@ -92,7 +92,7 @@ class SetorController{
 
   async setorTransporte(req, res){
     await Setor.find({
-      setor:{'$eq': 'Transporte coletivo'}
+      setor:{'$eq': 'Transporte Escolar'}
     }).then(r => res.status(200).json(r)).catch(e => res.status(400).json(e))
   }
 }
