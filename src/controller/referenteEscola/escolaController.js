@@ -78,27 +78,27 @@ class EscolaController{
 
   async referenteEMEI(req, res){
     const escola = await Escola.find({
-      nome:{'$eq':'EMEI Arco-íris '}
+      nome:{'$eq':'EMEI Arco-íris'}
     })
 
     const aee = await aeeModel.find({
-      fkescola:{'$eq':'652608917db0c35f0086f726'}
+      fkescola:{'$eq':'65974f57f9ca8f556db29966'}
     })
 
     const ei = await eiModel.find({
-      fkescola:{'$eq':'652608917db0c35f0086f726'}
+      fkescola:{'$eq':'65974f57f9ca8f556db29966'}
     })
 
     const eja = await ejaModel.find({
-      fkescola:{'$eq':'652608917db0c35f0086f726'}
+      fkescola:{'$eq':'65974f57f9ca8f556db29966'}
     })
 
     const creche = await crecheModel.find({
-      fkescola:{'$eq':'652608917db0c35f0086f726'}
+      fkescola:{'$eq':'65974f57f9ca8f556db29966'}
     })
 
     const pre = await preModel.find({
-      fkescola:{'$eq':'652608917db0c35f0086f726'}
+      fkescola:{'$eq':'65974f57f9ca8f556db29966'}
     })
 
     try{
