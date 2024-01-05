@@ -93,7 +93,7 @@ class ServidorController{
 
   async auxLimpContr(req, res){
     await Servidor.find({
-      funcao: {'$eq': 'Aux. Limpeza'},
+      funcao: {'$eq': 'Aux. Limpeza contratada'},
       cargo: {'$eq': 'Contratada'}
     }).populate('fkescola')
       .then(r => res.status(200).json(r))
