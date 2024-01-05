@@ -111,7 +111,7 @@ class EscolaController{
 
   async referenteFavo(req, res){
     const escola = await Escola.find({
-      nome:{'$eq':'CEIM Favo de Mel '}
+      nome:{'$eq':'CEIM Favo de Mel'}
     })
 
     const aee = await aeeModel.find({
@@ -144,7 +144,7 @@ class EscolaController{
 
   async referenteVILA(req, res){
     const escola = await Escola.find({
-      nome:{'$eq':'CEIM Vila Dom Silvio '}
+      nome:{'$eq':'CEIM Vila Dom Silvio'}
     })
 
     const aee = await aeeModel.find({
