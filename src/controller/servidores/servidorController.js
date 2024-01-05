@@ -142,6 +142,22 @@ class ServidorController{
       .then(r => res.status(200).json(r))
         .catch(e => res.status(400).json(e))
   }
+
+  async Escriturario(req, res){
+    await Servidor.find({
+      funcao: {'$eq': 'Escriturario'}
+    }).populate('fkescola')
+      .then(r => res.status(200).json(r))
+        .catch(e => res.status(400).json(e))
+  }
+
+  async Vigia(req, res){
+    await Servidor.find({
+      funcao: {'$eq': 'Vigia'}
+    }).populate('fkescola')
+      .then(r => res.status(200).json(r))
+        .catch(e => res.status(400).json(e))
+  }
 }
 
 module.exports = new ServidorController()

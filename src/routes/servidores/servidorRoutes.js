@@ -14,6 +14,8 @@ servidorRoute.get('/motoristaEfetivo/show', servidorController.motoristaEfetivo)
 servidorRoute.get('/motoristaContratado/show', servidorController.motoristaContratado)
 servidorRoute.get('/cuidador/show', servidorController.Cuidador)
 servidorRoute.get('/monitor/show', servidorController.Monitor)
+servidorRoute.get('/escriturario/show', servidorController.Escriturario)
+servidorRoute.get('/vigia/show', servidorController.Vigia)
 
 servidorRoute.put('/servidores/update/:_id', servidorController.updateDados)
 
